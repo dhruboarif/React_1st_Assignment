@@ -4,13 +4,14 @@ import Home from "./components/Home/Home";
 import Read from "./components/Read/Read";
 import NotFound from "./components/NotFound/NotFound";
 import Create from "./components/Create/Create";
-import { UserProvider } from "./components/UserContext/UserContext";
+import { ProductProvider } from "./components/ProductContext/ProductContext";
 import Delete from "./components/Delete/Delete";
 import Edit from "./components/Edit/Edit";
 
 function App() {
   return (
-    <UserProvider> 
+    
+    <ProductProvider> 
       <div className="app">
         <Router>
           <Switch>
@@ -35,7 +36,7 @@ function App() {
           </Switch>
         </Router>
       </div>
-    </UserProvider>
+    </ProductProvider>
   );
 }
 

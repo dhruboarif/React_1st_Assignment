@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import "./Create.css";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { UserContext } from "../UserContext/UserContext";
+import { ProductContext } from "../ProductContext/ProductContext";
 
 const Create = () => {
   const [id, setId] = useState("");
@@ -10,7 +10,7 @@ const Create = () => {
   const [position, setPosition] = useState("");
   const [salary, setSalary] = useState("");
 
-  const [users, setUser] = useContext(UserContext);
+  const [users, setUser] = useContext(ProductContext);
 
   const updateId = (e) => {
     setId(e.target.value);

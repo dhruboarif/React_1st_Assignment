@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { UserContext } from "../UserContext/UserContext";
+import { ProductContext } from "../ProductContext/ProductContext";
 import { Link } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
 import "./Delete.css";
 
 const Delete = () => {
-  const [users, setUser] = useContext(UserContext); 
+  const [users, setUser] = useContext(ProductContext); 
   const { id } = useParams();
 
   const deleteUser = (id) => {

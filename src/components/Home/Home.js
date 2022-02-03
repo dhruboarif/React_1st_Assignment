@@ -2,16 +2,16 @@ import React, { useContext } from "react";
 import "./Home.css";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { UserContext } from "../UserContext/UserContext";
+import { ProductContext } from "../ProductContext/ProductContext";
 
 const Home = () => {
-  const [users, setUser] = useContext(UserContext);
+  const [products, setProduct] = useContext(ProductContext);
 
   return (
     <div>
       <Link to="/create">
         <Button className="create__btn" variant="primary">
-          Create User
+          Create Product
         </Button>
       </Link>
 
@@ -19,31 +19,33 @@ const Home = () => {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Salary</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Product Category</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {products.map((product) => (
             <tr>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.position}</td>
-              <td>{user.salary}</td>
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>{product.desc}</td>
+              <td>{product.price}</td>
+              <td>{product.cat}</td>
               <td>
-                <Link to={"/read/"+user.id}>
+                <Link to={"/read/"+product.id}>
                   <Button className="action__btn" variant="success">
                     Read
                   </Button>
                 </Link>
-                <Link to={"/edit/"+user.id}>
+                <Link to={"/edit/"+product.id}>
                 <Button className="action__btn" variant="info">
                   Edit
                 </Button>
                 </Link>
-                <Link to={"/delete/"+user.id}>
+                <Link to={"/delete/"+product.id}>
                 <Button className="action__btn" variant="danger">
                   Delete
                 </Button>

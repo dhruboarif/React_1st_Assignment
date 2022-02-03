@@ -3,41 +3,42 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { UserContext } from "../UserContext/UserContext";
+import { ProductContext } from "../ProductContext/ProductContext";
 import "./Edit.css";
 import { useState } from "react";
 
 const Edit = () => {
-  const [users, setUser] = useContext(UserContext);
+  const [products, setProducts] = useContext(ProductContext);
   const { id } = useParams();
-  const user = users.filter((user) => user.id == id);
+  const product = products.filter((product) => product.id == id);
 
-  const [name, setName] = useState(user[0].name);
-  const [position, setPosition] = useState(user[0].position);
-  const [salary, setSalary] = useState(user[0].salary);
+  const [name, setName] = useState(product[0].name);
+  const [desc, setDesc] = useState(product[0].desc);
+  const [price, setPrice] = useState(product[0].price);
+  const [cat, setCat] = useState(product[0].cat);
   
 
   const editName = (e) => {
     setName(e.target.value);
     const edited_name = name;
-    user[0].name = edited_name;
+    product[0].name = edited_name;
   };
 
-  const editPosition = (e) => {
-    setPosition(e.target.value);
-    const edited_position = position;
-    user[0].position = edited_position;
+  const editDesc = (e) => {
+    setDesc(e.target.value);
+    const edited_description = desc;
+    product[0].position = edited_description;
   };
 
-  const editSalary = (e) => {
-    setSalary(e.target.value);
-    const edited_salary = salary;
-    user[0].salary = edited_salary;
+  const editPrice = (e) => {
+    setPrice(e.target.value);
+    const edited_price = price;
+    product[0].salary = edited_price;
   };
 
-  const editUser = (e) => {
+  const editCat = (e) => {
     e.preventDefault();
-    setUser([...users]);
+    setCat([...products]);
   };
 
   return (
@@ -45,7 +46,7 @@ const Edit = () => {
       <Form>
         <Form.Group>
           <Form.Label>
-            <h1>ID NO: {user[0].id}</h1>
+            <h1>ID NO: {product[0].id}</h1>
           </Form.Label>
         </Form.Group>
         <Form.Group>
@@ -55,17 +56,17 @@ const Edit = () => {
             name="name"
             value={name}
             onChange={editName}
-            placeholder={user[0].name}
+            placeholder={product[0].name}
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Position</Form.Label>
+          <Form.Label>Description</Form.Label>
           <Form.Control
             type="text"
-            name="position"
+            name="Description"
             // value={position}
-            onChange={editPosition}
-            placeholder={user[0].position}
+            onChange={editDesc}
+            placeholder={product[0].desc}
           />
         </Form.Group>
         <Form.Group>
@@ -74,13 +75,13 @@ const Edit = () => {
             type="text"
             name="salary"
             // value={salary}
-            onChange={editSalary}
-            placeholder={user[0].salary}
+            onChange={editPrice}
+            placeholder={product[0].salary}
           />
         </Form.Group>
         <Link to="/">
-          <Button onSubmit={()=>editUser} variant="primary" type="submit">
-            Edit User
+          <Button onSubmit={()=>editCat} variant="primary" type="submit">
+            Edit Product
           </Button>
           <Button className="action_btn" variant="info">
             Back to Home
